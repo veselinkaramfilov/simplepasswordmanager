@@ -1147,3 +1147,21 @@ Processing by Devise::SessionsController#new as TURBO_STREAM
 Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.0ms | Allocations: 4418)
 
 
+Started GET "/" for 127.0.0.1 at 2023-12-03 15:22:37 +0000
+  [1m[36mActiveRecord::SchemaMigration Pluck (2.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PasswordsController#index as HTML
+Completed 401 Unauthorized in 12ms (ActiveRecord: 0.0ms | Allocations: 2567)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-12-03 15:22:38 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.8ms | Allocations: 684)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 11.8ms | Allocations: 3511)
+  Rendered shared/_flash.html.erb (Duration: 1.9ms | Allocations: 215)
+  Rendered shared/_nav.html.erb (Duration: 2.0ms | Allocations: 408)
+  Rendered layout layouts/application.html.erb (Duration: 88.4ms | Allocations: 25124)
+Completed 200 OK in 114ms (Views: 98.0ms | ActiveRecord: 4.5ms | Allocations: 33211)
+
+
