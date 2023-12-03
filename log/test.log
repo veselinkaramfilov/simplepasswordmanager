@@ -63,3 +63,241 @@ DELETE FROM "users";
 INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-03 16:23:47.844297', '2023-12-03 16:23:47.844297'), (298486374, 'MyString', 'MyString', 'MyString', 298486374, '2023-12-03 16:23:47.844297', '2023-12-03 16:23:47.844297');
 INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 16:23:47.844359', '2023-12-03 16:23:47.844359'), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 16:23:47.844359', '2023-12-03 16:23:47.844359')[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (1.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.8ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-03 17:44:24.328684', '2023-12-03 17:44:24.328684'), (298486374, 'MyString', 'MyString', 'MyString', 298486374, '2023-12-03 17:44:24.328684', '2023-12-03 17:44:24.328684');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:44:24.341331', '2023-12-03 17:44:24.341331'), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:44:24.341331', '2023-12-03 17:44:24.341331')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-03 17:44:24.487035', '2023-12-03 17:44:24.487035'), (298486374, 'MyString', 'MyString', 'MyString', 298486374, '2023-12-03 17:44:24.487035', '2023-12-03 17:44:24.487035');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:44:24.487136', '2023-12-03 17:44:24.487136'), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:44:24.487136', '2023-12-03 17:44:24.487136')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-03 17:44:24.495057', '2023-12-03 17:44:24.495057'), (298486374, 'MyString', 'MyString', 'MyString', 298486374, '2023-12-03 17:44:24.495057', '2023-12-03 17:44:24.495057');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:44:24.495171', '2023-12-03 17:44:24.495171'), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:44:24.495171', '2023-12-03 17:44:24.495171')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-03 17:44:24.502833', '2023-12-03 17:44:24.502833'), (298486374, 'MyString', 'MyString', 'MyString', 298486374, '2023-12-03 17:44:24.502833', '2023-12-03 17:44:24.502833');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:44:24.502938', '2023-12-03 17:44:24.502938'), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:44:24.502938', '2023-12-03 17:44:24.502938')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-03 17:44:24.513971', '2023-12-03 17:44:24.513971'), (298486374, 'MyString', 'MyString', 'MyString', 298486374, '2023-12-03 17:44:24.513971', '2023-12-03 17:44:24.513971');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:44:24.514070', '2023-12-03 17:44:24.514070'), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:44:24.514070', '2023-12-03 17:44:24.514070')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.9ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-03 17:44:24.523181', '2023-12-03 17:44:24.523181'), (298486374, 'MyString', 'MyString', 'MyString', 298486374, '2023-12-03 17:44:24.523181', '2023-12-03 17:44:24.523181');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:44:24.523281', '2023-12-03 17:44:24.523281'), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:44:24.523281', '2023-12-03 17:44:24.523281')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-03 17:44:24.530608', '2023-12-03 17:44:24.530608'), (298486374, 'MyString', 'MyString', 'MyString', 298486374, '2023-12-03 17:44:24.530608', '2023-12-03 17:44:24.530608');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:44:24.530677', '2023-12-03 17:44:24.530677'), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:44:24.530677', '2023-12-03 17:44:24.530677')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.9ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-03 17:46:40.574818', '2023-12-03 17:46:40.574818');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:46:40.581364', '2023-12-03 17:46:40.581364'), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:46:40.581364', '2023-12-03 17:46:40.581364')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-03 17:46:40.682391', '2023-12-03 17:46:40.682391');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:46:40.682451', '2023-12-03 17:46:40.682451'), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:46:40.682451', '2023-12-03 17:46:40.682451')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.2ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-03 17:46:40.694349', '2023-12-03 17:46:40.694349');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:46:40.694424', '2023-12-03 17:46:40.694424'), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:46:40.694424', '2023-12-03 17:46:40.694424')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-03 17:46:40.702710', '2023-12-03 17:46:40.702710');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:46:40.702766', '2023-12-03 17:46:40.702766'), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:46:40.702766', '2023-12-03 17:46:40.702766')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-03 17:46:40.709375', '2023-12-03 17:46:40.709375');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:46:40.709431', '2023-12-03 17:46:40.709431'), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:46:40.709431', '2023-12-03 17:46:40.709431')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-03 17:46:40.715478', '2023-12-03 17:46:40.715478');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:46:40.715536', '2023-12-03 17:46:40.715536'), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:46:40.715536', '2023-12-03 17:46:40.715536')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-03 17:46:40.720870', '2023-12-03 17:46:40.720870');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:46:40.720925', '2023-12-03 17:46:40.720925'), (298486374, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, '2023-12-03 17:46:40.720925', '2023-12-03 17:46:40.720925')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.1ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-03 17:47:50.319380', '2023-12-03 17:47:50.319380');
+INSERT INTO "users" ("id", "email", "encrypted_password", "created_at", "updated_at") VALUES (980190962, 'admin@testmail.com', '$2a$04$C41qqW6a2/WU7Ndtz7h8G.BY7x/RZ6sTJxKw96luPUcstog0Fh9Y.', '2023-12-03 17:47:50', '2023-12-03 17:47:50.325576')[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "passwords" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mdo $$
+  declare r record;
+BEGIN
+FOR r IN (
+  SELECT FORMAT(
+    'UPDATE pg_constraint SET convalidated=false WHERE conname = ''%I'' AND connamespace::regnamespace = ''%I''::regnamespace; ALTER TABLE %I.%I VALIDATE CONSTRAINT %I;',
+    constraint_name,
+    table_schema,
+    table_schema,
+    table_name,
+    constraint_name
+  ) AS constraint_check
+  FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY'
+)
+  LOOP
+    EXECUTE (r.constraint_check);
+  END LOOP;
+END;
+$$;
+[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PasswordsControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/passwords/new" for 127.0.0.1 at 2023-12-03 17:47:50 +0000
+Processing by PasswordsController#new as HTML
+Completed 401 Unauthorized in 12ms (ActiveRecord: 0.0ms | Allocations: 2397)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+PasswordsControllerTest: test_should_destroy_password
+-----------------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mPassword Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "passwords"[0m
+Started DELETE "/passwords/980190962" for 127.0.0.1 at 2023-12-03 17:47:50 +0000
+Processing by PasswordsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 150)
+  [1m[36mCACHE Password Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "passwords"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+PasswordsControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[36mPassword Load (0.3ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/passwords/980190962/edit" for 127.0.0.1 at 2023-12-03 17:47:50 +0000
+Processing by PasswordsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+PasswordsControllerTest: test_should_update_password
+----------------------------------------------------
+  [1m[36mPassword Load (0.3ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/passwords/980190962" for 127.0.0.1 at 2023-12-03 17:47:50 +0000
+Processing by PasswordsController#update as HTML
+  Parameters: {"password"=>"[FILTERED]", "id"=>"980190962"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------
+PasswordsControllerTest: test_should_show_password
+--------------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/passwords/980190962" for 127.0.0.1 at 2023-12-03 17:47:50 +0000
+Processing by PasswordsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+PasswordsControllerTest: test_should_create_password
+----------------------------------------------------
+  [1m[36mPassword Load (0.3ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mPassword Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "passwords"[0m
+Started POST "/passwords" for 127.0.0.1 at 2023-12-03 17:47:50 +0000
+Processing by PasswordsController#create as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mCACHE Password Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "passwords"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+PasswordsControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/passwords" for 127.0.0.1 at 2023-12-03 17:47:50 +0000
+Processing by PasswordsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
