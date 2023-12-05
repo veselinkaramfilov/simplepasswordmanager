@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
         run:
-          working-directory: scripts
+          working-directory: ./proj1
     services:
       postgres:
         image: postgres:11-alpine
