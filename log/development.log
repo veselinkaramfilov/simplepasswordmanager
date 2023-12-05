@@ -1274,3 +1274,66 @@ Processing by PasswordsController#index as HTML
 Completed 200 OK in 243ms (Views: 186.4ms | ActiveRecord: 7.2ms | Allocations: 45445)
 
 
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <main> at /Users/veselinkaramfilov/Documents/GitHub/simplepasswordmanager/app/models/application_record.rb:3)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8391560978737391280)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8391560978737391280)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <main> at /Users/veselinkaramfilov/Documents/GitHub/simplepasswordmanager/app/models/application_record.rb:3)
+Started GET "/" for 127.0.0.1 at 2023-12-05 21:37:44 +0000
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PasswordsController#index as HTML
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.0ms | Allocations: 5277)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-12-05 21:37:44 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 7.7ms | Allocations: 685)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 30.8ms | Allocations: 3519)
+  Rendered shared/_flash.html.erb (Duration: 2.9ms | Allocations: 219)
+  Rendered shared/_nav.html.erb (Duration: 3.6ms | Allocations: 408)
+  Rendered layout layouts/application.html.erb (Duration: 157.2ms | Allocations: 24962)
+Completed 200 OK in 180ms (Views: 165.8ms | ActiveRecord: 4.0ms | Allocations: 34565)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-12-05 21:37:50 +0000
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"veselinyurievkaramfilov@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "veselinyurievkaramfilov@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 296ms (ActiveRecord: 0.7ms | Allocations: 6886)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-05 21:37:51 +0000
+Processing by PasswordsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering passwords/index.html.erb within layouts/application
+  [1m[36mPassword Load (0.5ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/passwords/index.html.erb:6
+  Rendered passwords/_password.html.erb (Duration: 1.0ms | Allocations: 229)
+  Rendered passwords/_password.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered passwords/index.html.erb within layouts/application (Duration: 30.8ms | Allocations: 7453)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered shared/_nav.html.erb (Duration: 0.3ms | Allocations: 258)
+  Rendered layout layouts/application.html.erb (Duration: 35.1ms | Allocations: 10240)
+Completed 200 OK in 52ms (Views: 34.0ms | ActiveRecord: 2.7ms | Allocations: 16282)
+
+
