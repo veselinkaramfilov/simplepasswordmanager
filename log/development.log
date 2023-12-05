@@ -1337,3 +1337,88 @@ Processing by PasswordsController#index as TURBO_STREAM
 Completed 200 OK in 52ms (Views: 34.0ms | ActiveRecord: 2.7ms | Allocations: 16282)
 
 
+DEPRECATION WARNING: Using legacy connection handling is deprecated. Please set
+`legacy_connection_handling` to `false` in your application.
+
+The new connection handling does not support `connection_handlers`
+getter and setter.
+
+Read more about how to migrate at: https://guides.rubyonrails.org/active_record_multiple_databases.html#migrate-to-the-new-connection-handling
+ (called from <main> at /Users/veselinkaramfilov/Documents/GitHub/simplepasswordmanager/app/models/application_record.rb:3)
+Started GET "/" for 127.0.0.1 at 2023-12-05 22:11:01 +0000
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PasswordsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering passwords/index.html.erb within layouts/application
+  [1m[36mPassword Load (0.4ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/passwords/index.html.erb:6
+  Rendered passwords/_password.html.erb (Duration: 1.1ms | Allocations: 246)
+  Rendered passwords/_password.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered passwords/index.html.erb within layouts/application (Duration: 20.4ms | Allocations: 7747)
+  Rendered shared/_flash.html.erb (Duration: 1.5ms | Allocations: 201)
+  Rendered shared/_nav.html.erb (Duration: 5.2ms | Allocations: 549)
+  Rendered layout layouts/application.html.erb (Duration: 197.5ms | Allocations: 29689)
+Completed 200 OK in 250ms (Views: 199.7ms | ActiveRecord: 6.2ms | Allocations: 47107)
+
+
+Started GET "/passwords/12" for 127.0.0.1 at 2023-12-05 22:11:05 +0000
+Processing by PasswordsController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."user_id" = $1 AND "passwords"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/passwords_controller.rb:67:in `set_password'
+  [1m[36mCACHE Password Load (0.0ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."user_id" = $1 AND "passwords"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/passwords_controller.rb:14:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering passwords/show.html.erb within layouts/application
+  Rendered passwords/_password.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered passwords/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 611)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 14)
+  Rendered shared/_nav.html.erb (Duration: 0.4ms | Allocations: 233)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 3281)
+Completed 200 OK in 12ms (Views: 5.2ms | ActiveRecord: 0.5ms | Allocations: 8123)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-05 22:11:23 +0000
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PasswordsController#index as HTML
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.0ms | Allocations: 4592)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-12-05 22:11:23 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 11.3ms | Allocations: 684)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 26.7ms | Allocations: 3524)
+  Rendered shared/_flash.html.erb (Duration: 1.4ms | Allocations: 219)
+  Rendered shared/_nav.html.erb (Duration: 2.0ms | Allocations: 408)
+  Rendered layout layouts/application.html.erb (Duration: 158.4ms | Allocations: 25157)
+Completed 200 OK in 183ms (Views: 167.4ms | ActiveRecord: 3.5ms | Allocations: 33250)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-12-05 22:11:31 +0000
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"veselinyurievkaramfilov@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "veselinyurievkaramfilov@gmail.com"], ["LIMIT", 1]]
+Redirected to http://0.0.0.0:3000/
+Completed 303 See Other in 298ms (ActiveRecord: 0.8ms | Allocations: 5508)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-05 22:11:31 +0000
+Processing by PasswordsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering passwords/index.html.erb within layouts/application
+  [1m[36mPassword Load (0.5ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/passwords/index.html.erb:6
+  Rendered passwords/_password.html.erb (Duration: 1.2ms | Allocations: 229)
+  Rendered passwords/_password.html.erb (Duration: 0.0ms | Allocations: 20)
+  Rendered passwords/index.html.erb within layouts/application (Duration: 20.5ms | Allocations: 7418)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered shared/_nav.html.erb (Duration: 0.3ms | Allocations: 271)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | Allocations: 10225)
+Completed 200 OK in 42ms (Views: 22.7ms | ActiveRecord: 2.9ms | Allocations: 14799)
+
+
