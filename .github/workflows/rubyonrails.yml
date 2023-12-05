@@ -13,6 +13,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+        run:
+          working-directory: shared-models
     services:
       postgres:
         image: postgres:11-alpine
