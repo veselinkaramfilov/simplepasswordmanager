@@ -1150,3 +1150,110 @@ Processing by PasswordsController#index as HTML
 Completed 200 OK in 12ms (Views: 5.9ms | ActiveRecord: 0.5ms | Allocations: 5376)
 
 
+Started GET "/" for 127.0.0.1 at 2023-12-05 21:28:05 +0000
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PasswordsController#index as HTML
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms | Allocations: 2400)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2023-12-05 21:28:05 +0000
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 8.7ms | Allocations: 684)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 41.9ms | Allocations: 3527)
+  Rendered shared/_flash.html.erb (Duration: 1.5ms | Allocations: 219)
+  Rendered shared/_nav.html.erb (Duration: 1.7ms | Allocations: 408)
+  Rendered layout layouts/application.html.erb (Duration: 188.4ms | Allocations: 26540)
+Completed 200 OK in 217ms (Views: 197.6ms | ActiveRecord: 5.6ms | Allocations: 34644)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2023-12-05 21:28:12 +0000
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"veselinyurievkaramfilov@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "veselinyurievkaramfilov@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 295ms (ActiveRecord: 1.1ms | Allocations: 5521)
+
+
+Started GET "/" for 127.0.0.1 at 2023-12-05 21:28:12 +0000
+Processing by PasswordsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering passwords/index.html.erb within layouts/application
+  [1m[36mPassword Load (0.7ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/passwords/index.html.erb:6
+  Rendered passwords/_password.html.erb (Duration: 1.2ms | Allocations: 229)
+  Rendered passwords/index.html.erb within layouts/application (Duration: 23.4ms | Allocations: 7317)
+  Rendered shared/_flash.html.erb (Duration: 0.0ms | Allocations: 21)
+  Rendered shared/_nav.html.erb (Duration: 0.3ms | Allocations: 271)
+  Rendered layout layouts/application.html.erb (Duration: 26.4ms | Allocations: 10124)
+Completed 200 OK in 43ms (Views: 24.6ms | ActiveRecord: 3.5ms | Allocations: 14680)
+
+
+Started GET "/passwords/new" for 127.0.0.1 at 2023-12-05 21:28:18 +0000
+Processing by PasswordsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering passwords/new.html.erb within layouts/application
+  Rendered passwords/_form.html.erb (Duration: 3.5ms | Allocations: 1630)
+  Rendered passwords/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1927)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 22)
+  Rendered shared/_nav.html.erb (Duration: 0.4ms | Allocations: 253)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 4638)
+Completed 200 OK in 13ms (Views: 9.4ms | ActiveRecord: 0.3ms | Allocations: 6292)
+
+
+Started POST "/passwords" for 127.0.0.1 at 2023-12-05 21:28:24 +0000
+Processing by PasswordsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "password"=>"[FILTERED]", "commit"=>"Create Password"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/passwords_controller.rb:29:in `block in create'
+  [1m[36mPassword Create (1.6ms)[0m  [1m[32mINSERT INTO "passwords" ("url", "username", "password", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["url", "twitter.com"], ["username", "veselin"], ["password", "[FILTERED]"], ["user_id", 1], ["created_at", "2023-12-05 21:28:24.966185"], ["updated_at", "2023-12-05 21:28:24.966185"]]
+  ↳ app/controllers/passwords_controller.rb:29:in `block in create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/passwords_controller.rb:29:in `block in create'
+Redirected to http://127.0.0.1:3000/passwords/13
+Completed 302 Found in 10ms (ActiveRecord: 2.5ms | Allocations: 4943)
+
+
+Started GET "/passwords/13" for 127.0.0.1 at 2023-12-05 21:28:24 +0000
+Processing by PasswordsController#show as TURBO_STREAM
+  Parameters: {"id"=>"13"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPassword Load (0.3ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."user_id" = $1 AND "passwords"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/passwords_controller.rb:65:in `set_password'
+  [1m[36mCACHE Password Load (0.0ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."user_id" = $1 AND "passwords"."id" = $2 LIMIT $3[0m  [["user_id", 1], ["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/passwords_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering passwords/show.html.erb within layouts/application
+  Rendered passwords/_password.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered passwords/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 620)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 18)
+  Rendered shared/_nav.html.erb (Duration: 0.5ms | Allocations: 244)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3310)
+Completed 200 OK in 15ms (Views: 6.6ms | ActiveRecord: 0.8ms | Allocations: 6569)
+
+
+Started GET "/passwords" for 127.0.0.1 at 2023-12-05 21:28:26 +0000
+Processing by PasswordsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering passwords/index.html.erb within layouts/application
+  [1m[36mPassword Load (0.3ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/passwords/index.html.erb:6
+  Rendered passwords/_password.html.erb (Duration: 0.1ms | Allocations: 21)
+  Rendered passwords/_password.html.erb (Duration: 0.1ms | Allocations: 20)
+  Rendered passwords/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1005)
+  Rendered shared/_flash.html.erb (Duration: 0.1ms | Allocations: 14)
+  Rendered shared/_nav.html.erb (Duration: 0.3ms | Allocations: 244)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 3699)
+Completed 200 OK in 12ms (Views: 7.0ms | ActiveRecord: 0.7ms | Allocations: 5328)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8391560978737391280)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8391560978737391280)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
