@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class PasswordsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_password, except: [:index, :new, :create]
+  before_action :set_password, except: %i[index new create]
 
   # GET /passwords or /passwords.json
   def index
@@ -18,8 +20,7 @@ class PasswordsController < ApplicationController
   end
 
   # GET /passwords/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /passwords or /passwords.json
   def create
@@ -27,7 +28,7 @@ class PasswordsController < ApplicationController
 
     respond_to do |format|
       if @password.save
-        format.html { redirect_to password_url(@password), notice: "Password was successfully created." }
+        format.html { redirect_to password_url(@password), notice: 'Password was successfully created.' }
         format.json { render :show, status: :created, location: @password }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +41,7 @@ class PasswordsController < ApplicationController
   def update
     respond_to do |format|
       if @password.update(password_params)
-        format.html { redirect_to password_url(@password), notice: "Password was successfully updated." }
+        format.html { redirect_to password_url(@password), notice: 'Password was successfully updated.' }
         format.json { render :show, status: :ok, location: @password }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,12 +55,13 @@ class PasswordsController < ApplicationController
     @password.destroy
 
     respond_to do |format|
-      format.html { redirect_to passwords_url, notice: "Password was successfully destroyed." }
+      format.html { redirect_to passwords_url, notice: 'Password was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_password
     @password = current_user.passwords.find(params[:id])
