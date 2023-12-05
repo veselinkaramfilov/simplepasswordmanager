@@ -13,9 +13,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    defaults:
-        run:
-          working-directory: ./proj1
+
     services:
       postgres:
         image: postgres:11-alpine
@@ -42,6 +40,14 @@ jobs:
       # Add or replace test runners here
       - name: Run tests
         run: bin/rake
+      - name: Read .nvmrc
+        run: echo "##[set-output name=NVMRC;]$(cat .nvmrc)"
+        id: nvm
+
+      - name: Use Node.js (.nvmrc)
+        uses: actions/setup-node@v1
+        with:
+            node-version: "${{ steps.nvm.outputs.NVMRC }}"
 
   lint:
     runs-on: ubuntu-latest
