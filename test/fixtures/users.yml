@@ -6,8 +6,16 @@
 #
 one: 
 
-  email: admin@testmail.com
+  email: admin@mail.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
 
 
+
+two:
+
+  email: user@mail.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  created_at: <%= Time.zone.now %>
+  updated_at: <%= Time.zone.now %>
