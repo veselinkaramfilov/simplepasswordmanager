@@ -4412,3 +4412,327 @@ Started GET "/passwords" for 127.0.0.1 at 2023-12-12 13:24:32 +0000
 Processing by PasswordsController#index as HTML
 Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-12 14:55:56.954122', '2023-12-12 14:55:56.954122');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, 'admin@mail.com', '$2a$04$yM4LLvoV0g2Znb6COtZpOuU8OsgmeE2ImiG3qgiTeJay1D3dnBud2', DEFAULT, DEFAULT, DEFAULT, '2023-12-12 14:55:56', '2023-12-12 14:55:56'), (298486374, 'user@mail.com', '$2a$04$.5oplOKW8aoHR9YlRqDbGO2m1J0/aeY7gFxFrU0iMPuDIsC5s3LNy', DEFAULT, DEFAULT, DEFAULT, '2023-12-12 14:55:56', '2023-12-12 14:55:56')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "passwords" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.3ms)[0m  [1m[35mdo $$
+  declare r record;
+BEGIN
+FOR r IN (
+  SELECT FORMAT(
+    'UPDATE pg_constraint SET convalidated=false WHERE conname = ''%I'' AND connamespace::regnamespace = ''%I''::regnamespace; ALTER TABLE %I.%I VALIDATE CONSTRAINT %I;',
+    constraint_name,
+    table_schema,
+    table_schema,
+    table_name,
+    constraint_name
+  ) AS constraint_check
+  FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY'
+)
+  LOOP
+    EXECUTE (r.constraint_check);
+  END LOOP;
+END;
+$$;
+[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+PasswordsControllerTest: test_should_destroy_password
+-----------------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mPassword Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "passwords"[0m
+Started DELETE "/passwords/980190962" for 127.0.0.1 at 2023-12-12 14:55:57 +0000
+Processing by PasswordsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.0ms | Allocations: 2395)
+  [1m[36mCACHE Password Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "passwords"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+PasswordsControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/passwords/980190962/edit" for 127.0.0.1 at 2023-12-12 14:55:57 +0000
+Processing by PasswordsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 150)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+PasswordsControllerTest: test_should_update_password
+----------------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/passwords/980190962" for 127.0.0.1 at 2023-12-12 14:55:57 +0000
+Processing by PasswordsController#update as HTML
+  Parameters: {"password"=>"[FILTERED]", "id"=>"980190962"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+PasswordsControllerTest: test_should_create_password
+----------------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mPassword Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "passwords"[0m
+Started POST "/passwords" for 127.0.0.1 at 2023-12-12 14:55:57 +0000
+Processing by PasswordsController#create as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mCACHE Password Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "passwords"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------
+PasswordsControllerTest: test_should_show_password
+--------------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/passwords/980190962" for 127.0.0.1 at 2023-12-12 14:55:57 +0000
+Processing by PasswordsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PasswordsControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/passwords/new" for 127.0.0.1 at 2023-12-12 14:55:57 +0000
+Processing by PasswordsController#new as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+PasswordsControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/passwords" for 127.0.0.1 at 2023-12-12 14:55:57 +0000
+Processing by PasswordsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.3ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-12 15:38:10.167819', '2023-12-12 15:38:10.167819');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, 'admin@mail.com', '$2a$04$Agxj3iIpoU1/XkYTeMO88OtThQww.oecuokwooYZN5TbdJ0Xq2B8e', DEFAULT, DEFAULT, DEFAULT, '2023-12-12 15:38:10', '2023-12-12 15:38:10'), (298486374, 'user@mail.com', '$2a$04$A3qrvJkqP32F0GMGRGmCROM0jQaCBt4J0JxKqABa6n8gWGyS0smUO', DEFAULT, DEFAULT, DEFAULT, '2023-12-12 15:38:10', '2023-12-12 15:38:10')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "passwords" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.0ms)[0m  [1m[35mdo $$
+  declare r record;
+BEGIN
+FOR r IN (
+  SELECT FORMAT(
+    'UPDATE pg_constraint SET convalidated=false WHERE conname = ''%I'' AND connamespace::regnamespace = ''%I''::regnamespace; ALTER TABLE %I.%I VALIDATE CONSTRAINT %I;',
+    constraint_name,
+    table_schema,
+    table_schema,
+    table_name,
+    constraint_name
+  ) AS constraint_check
+  FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY'
+)
+  LOOP
+    EXECUTE (r.constraint_check);
+  END LOOP;
+END;
+$$;
+[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+PasswordsControllerTest: test_should_destroy_password
+-----------------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mPassword Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "passwords"[0m
+Started DELETE "/passwords/980190962" for 127.0.0.1 at 2023-12-12 15:38:10 +0000
+Processing by PasswordsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.0ms | Allocations: 2395)
+  [1m[36mCACHE Password Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "passwords"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------
+PasswordsControllerTest: test_should_show_password
+--------------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/passwords/980190962" for 127.0.0.1 at 2023-12-12 15:38:10 +0000
+Processing by PasswordsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 150)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+PasswordsControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/passwords/980190962/edit" for 127.0.0.1 at 2023-12-12 15:38:10 +0000
+Processing by PasswordsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PasswordsControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/passwords/new" for 127.0.0.1 at 2023-12-12 15:38:10 +0000
+Processing by PasswordsController#new as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+PasswordsControllerTest: test_should_update_password
+----------------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/passwords/980190962" for 127.0.0.1 at 2023-12-12 15:38:10 +0000
+Processing by PasswordsController#update as HTML
+  Parameters: {"password"=>"[FILTERED]", "id"=>"980190962"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+PasswordsControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/passwords" for 127.0.0.1 at 2023-12-12 15:38:10 +0000
+Processing by PasswordsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+PasswordsControllerTest: test_should_create_password
+----------------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mPassword Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "passwords"[0m
+Started POST "/passwords" for 127.0.0.1 at 2023-12-12 15:38:10 +0000
+Processing by PasswordsController#create as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mCACHE Password Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "passwords"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "schema_sha1"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" DISABLE TRIGGER ALL;ALTER TABLE "passwords" DISABLE TRIGGER ALL;ALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.0ms)[0m  [1m[31mDELETE FROM "passwords";
+DELETE FROM "users";
+INSERT INTO "passwords" ("id", "url", "username", "password", "user_id", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', 980190962, '2023-12-12 16:02:16.733527', '2023-12-12 16:02:16.733527');
+INSERT INTO "users" ("id", "email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES (980190962, 'admin@mail.com', '$2a$04$Xn8X17FEN5zgUUfHAPgsQOzNOjU7WSxKYvS75NhiDqrlUs5II7xdW', DEFAULT, DEFAULT, DEFAULT, '2023-12-12 16:02:16', '2023-12-12 16:02:16'), (298486374, 'user@mail.com', '$2a$04$jy3hdMzqeQOy26MgegMzD.vEvaGXwwMAwbKgIiPA.mupdyY5uU5Dm', DEFAULT, DEFAULT, DEFAULT, '2023-12-12 16:02:16', '2023-12-12 16:02:16')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ENABLE TRIGGER ALL;ALTER TABLE "passwords" ENABLE TRIGGER ALL;ALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.4ms)[0m  [1m[35mdo $$
+  declare r record;
+BEGIN
+FOR r IN (
+  SELECT FORMAT(
+    'UPDATE pg_constraint SET convalidated=false WHERE conname = ''%I'' AND connamespace::regnamespace = ''%I''::regnamespace; ALTER TABLE %I.%I VALIDATE CONSTRAINT %I;',
+    constraint_name,
+    table_schema,
+    table_schema,
+    table_name,
+    constraint_name
+  ) AS constraint_check
+  FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY'
+)
+  LOOP
+    EXECUTE (r.constraint_check);
+  END LOOP;
+END;
+$$;
+[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+PasswordsControllerTest: test_should_get_new
+--------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/passwords/new" for 127.0.0.1 at 2023-12-12 16:02:16 +0000
+Processing by PasswordsController#new as HTML
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.0ms | Allocations: 2393)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------------
+PasswordsControllerTest: test_should_destroy_password
+-----------------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mPassword Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "passwords"[0m
+Started DELETE "/passwords/980190962" for 127.0.0.1 at 2023-12-12 16:02:16 +0000
+Processing by PasswordsController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 150)
+  [1m[36mCACHE Password Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "passwords"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+PasswordsControllerTest: test_should_get_edit
+---------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/passwords/980190962/edit" for 127.0.0.1 at 2023-12-12 16:02:16 +0000
+Processing by PasswordsController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------------
+PasswordsControllerTest: test_should_show_password
+--------------------------------------------------
+  [1m[36mPassword Load (0.3ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/passwords/980190962" for 127.0.0.1 at 2023-12-12 16:02:16 +0000
+Processing by PasswordsController#show as HTML
+  Parameters: {"id"=>"980190962"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------
+PasswordsControllerTest: test_should_get_index
+----------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started GET "/passwords" for 127.0.0.1 at 2023-12-12 16:02:16 +0000
+Processing by PasswordsController#index as HTML
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+PasswordsControllerTest: test_should_update_password
+----------------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+Started PATCH "/passwords/980190962" for 127.0.0.1 at 2023-12-12 16:02:16 +0000
+Processing by PasswordsController#update as HTML
+  Parameters: {"password"=>"[FILTERED]", "id"=>"980190962"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------------------
+PasswordsControllerTest: test_should_create_password
+----------------------------------------------------
+  [1m[36mPassword Load (0.2ms)[0m  [1m[34mSELECT "passwords".* FROM "passwords" WHERE "passwords"."id" = $1 LIMIT $2[0m  [["id", 980190962], ["LIMIT", 1]]
+  [1m[36mPassword Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "passwords"[0m
+Started POST "/passwords" for 127.0.0.1 at 2023-12-12 16:02:16 +0000
+Processing by PasswordsController#create as HTML
+  Parameters: {"password"=>"[FILTERED]"}
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms | Allocations: 149)
+  [1m[36mCACHE Password Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "passwords"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
